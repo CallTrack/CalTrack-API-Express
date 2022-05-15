@@ -8,7 +8,7 @@ const exercises = [
         amount: 5 // in minutes
     },
     {
-        id: 1,
+        id: 2,
         name: "pull up",
         caloriesBurn: 55,
         amount: 5 // in minutes
