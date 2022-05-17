@@ -1,4 +1,4 @@
-function calculateCalories(gender, weight, height, age, activityLevel) {
+module.exports = function(gender, weight, height, age, activityLevel) {
     let BMR = 0;
     let AMR = 0;
 

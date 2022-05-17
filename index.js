@@ -1,5 +1,4 @@
 const express = require("express");
-const logger = require("./middleware/logger")
 const path = require("path");
 
 const app = express();
