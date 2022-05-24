@@ -6,6 +6,7 @@ const users = require("../../users");
 const calculateCalories = require("../functions/calculateCalories");
 const db = require('../../db');
 
+//Get All Users
 router.get('/', (req, res) => {
     const client = db();
     client.connect((err) =>{
@@ -27,6 +28,7 @@ router.get('/', (req, res) => {
     });
 });
 
+//Get Specified User
 router.get('/:email', (req, res) => {
     const email = req.params.email;
     const client = db();
@@ -49,6 +51,7 @@ router.get('/:email', (req, res) => {
     });
 });
 
+//Add New User
 router.post('/', (req, res) => {
     const email = req.body.email;
     const name = req.body.name;
@@ -94,6 +97,7 @@ router.post('/', (req, res) => {
     });
 });
 
+//Update User
 router.put('/:id', (req, res) => {
     const id = req.params.id;
     const name = req.body.name;
