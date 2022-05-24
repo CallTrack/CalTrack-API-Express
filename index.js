@@ -13,6 +13,8 @@ app.use('/api/foods', require('./routes/api/foods'));
 
 app.use('/api/users', require('./routes/api/users'));
 
+app.use('/api/records', require('./routes/api/records'));
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
