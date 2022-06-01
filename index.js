@@ -13,6 +13,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 
 app.use('/api/foods', require('./routes/api/foods'));
 
+app.use('/api/exercises', require('./routes/api/exercises'));
+
 app.use('/api/users', require('./routes/api/users'));
 
 app.use('/api/records', require('./routes/api/records'));
