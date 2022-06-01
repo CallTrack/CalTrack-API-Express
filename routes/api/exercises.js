@@ -53,3 +53,5 @@ router.get('/', async (req, res) => {
     // });
     // res.send(matchingName); 
 });
+
+module.exports = router;
