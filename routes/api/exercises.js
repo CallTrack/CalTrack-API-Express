@@ -1,7 +1,9 @@
 const express = require("express");
 const router = express.Router();
 // const foods = require("../../foods");
-const db = require("../../db");
+const database = require("../../db");
+
+const db = database();
 
 router.get('/', async (req, res) => {
     try {
