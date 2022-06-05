@@ -45,7 +45,7 @@ router.get('/:id', async (req, res) => {
         res.json({
             status: 'success',
             data: {
-                foods: results,
+                foods: results.rows,
             }
         });
     } catch (err) {
@@ -71,7 +71,7 @@ router.get('/', async (req, res) => {
         res.json({
             status: 'success',
             data: {
-                foods: results,
+                foods: results.rows,
             }
         })
     } catch (err) {
