@@ -53,8 +53,8 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.get('/', async (req, res) => {
-    const searchedField = req.query.name;
+router.get('/search/:name', async (req, res) => {
+    const searchedField = req.params.name;
     console.log(searchedField);
     
     const db = database();
@@ -67,7 +67,7 @@ router.get('/', async (req, res) => {
     });
     
     try {
-        const results = await db.query("select * from foods where name like '$1'", [searchedField]);
+        const results = await db.query("select * from foods where name like $1", [searchedField]);
         res.json({
             status: 'success',
             data: {
