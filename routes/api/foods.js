@@ -1,9 +1,19 @@
 const express = require("express");
 const router = express.Router();
 // const foods = require("../../foods");
-// const db = require("../../db");
+const database = require("../../db");
 
 router.get('/', async (req, res) => {
+    
+    const db = database();
+    db.connect((err) =>{
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('Database Connected');
+    });
+    
     try {
         const results = await db.query("select * from foods");
         console.log(results);
@@ -20,6 +30,16 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/:id', async (req, res) => {
+    
+    const db = database();
+    db.connect((err) =>{
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('Database Connected');
+    });
+    
     try {
         const results = await db.query("select * from foods where id = $1", [req.params.id]);
         res.json({
@@ -36,6 +56,16 @@ router.get('/:id', async (req, res) => {
 router.get('/', async (req, res) => {
     const searchedField = req.query.name;
     console.log(searchedField);
+    
+    const db = database();
+    db.connect((err) =>{
+        if (err) {
+            console.error(err);
+            return;
+        }
+        console.log('Database Connected');
+    });
+    
     try {
         const results = await db.query("select * from foods where name like '$1'", [searchedField]);
         res.json({
