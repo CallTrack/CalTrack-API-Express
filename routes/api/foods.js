@@ -53,7 +53,7 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.get('/', async (req, res) => {
+router.get('/search', async (req, res) => {
     const searchedField = req.query.name;
     console.log(searchedField);
     
