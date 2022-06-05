@@ -41,7 +41,7 @@ router.get('/:id', async (req, res) => {
     });
     
     try {
-        const results = await db.query("select * from foods where id = $1", [req.params.id]);
+        const results = await db.query("select * from foods where id_food = $1", [req.params.id]);
         res.json({
             status: 'success',
             data: {
@@ -71,7 +71,7 @@ router.get('/', async (req, res) => {
         res.json({
             status: 'success',
             data: {
-                foods: results.rows,
+                foods: results,
             }
         })
     } catch (err) {
