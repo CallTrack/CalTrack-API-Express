@@ -67,7 +67,7 @@ router.get('/search/:name', async (req, res) => {
     });
     
     try {
-        const results = await db.query("select * from foods where name like $1", [searchedField]);
+        const results = await db.query("select * from foods where name like $1", [searchedField + '%']);
         res.json({
             status: 'success',
             data: {
