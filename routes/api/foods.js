@@ -53,8 +53,8 @@ router.get('/:id', async (req, res) => {
     }
 });
 
-router.get('/:name', async (req, res) => {
-    const searchedField = req.params.name;
+router.get('/', async (req, res) => {
+    const searchedField = req.query.name;
     console.log(searchedField);
     
     const db = database();
