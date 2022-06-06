@@ -47,7 +47,7 @@ router.get('/:email', (req, res) => {
             res.status(400);
         }
         client.end();
-        res.json(results.rows);
+        res.json(results.rows[0]);
     });
 });
 
