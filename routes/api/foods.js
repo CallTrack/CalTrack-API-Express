@@ -16,16 +16,10 @@ router.get('/', async (req, res) => {
     
     try {
         const results = await db.query("select * from foods");
-        console.log(results);
-        res.json({
-            status: 'success',
-            results: results.rows.length,
-            data: {
-                foods: results.rows,
-            },
-        });
+        res.json(results.rows);
     } catch (err) {
         console.log(err);
+        res.status(400);
     }
 });
 
@@ -42,14 +36,10 @@ router.get('/:id', async (req, res) => {
     
     try {
         const results = await db.query("select * from foods where id_food = $1", [req.params.id]);
-        res.json({
-            status: 'success',
-            data: {
-                foods: results.rows,
-            }
-        });
+        res.json(results.rows);
     } catch (err) {
         console.log(err);
+        res.status(400);
     }
 });
 
@@ -68,14 +58,10 @@ router.get('/search/:name', async (req, res) => {
     
     try {
         const results = await db.query("select * from foods where name like $1", [searchedField + '%']);
-        res.json({
-            status: 'success',
-            data: {
-                foods: results.rows,
-            }
-        })
+        res.json(results.rows);
     } catch (err) {
         console.log(err);
+        res.status(400);
     }
     // res.send(foods.find({name:{$regex: searchedField, $option: '$i'}}));
     // const matchingName = foods.filter(food => {
