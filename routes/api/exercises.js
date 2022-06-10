@@ -36,7 +36,7 @@ router.get('/:id', async (req, res) => {
     
     try {
         const results = await db.query("select * from exercises where id_exercise = $1", [req.params.id]);
-        res.json(results.rows);
+        res.json(results.rows[0]);
     } catch (err) {
         console.log(err);
         res.status(400);

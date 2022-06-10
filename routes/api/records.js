@@ -79,7 +79,7 @@ router.get('/:userid/:recordid', (req, res) => {
             });
         }
         client.end();
-        res.json(results.rows);
+        res.json(results.rows[0]);
     });
     /*
     const query = `SELECT * FROM records WHERE id_record = $1`;
