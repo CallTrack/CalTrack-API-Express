@@ -16,7 +16,10 @@ router.get('/', async (req, res) => {
     
     try {
         const results = await db.query("select * from foods");
-        res.json(results.rows);
+        res.json({
+            status: 'success',
+            foodList: results.rows
+        });
     } catch (err) {
         console.log(err);
         res.status(400);
@@ -58,7 +61,10 @@ router.get('/search/:name', async (req, res) => {
     
     try {
         const results = await db.query("select * from foods where name like $1", [searchedField + '%']);
-        res.json(results.rows);
+        res.json({
+            status: 'success',
+            foodList: results.rows
+        });
     } catch (err) {
         console.log(err);
         res.status(400);

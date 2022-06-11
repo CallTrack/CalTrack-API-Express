@@ -25,7 +25,10 @@ router.get('/', (req, res) => {
             });
         }
         client.end();
-        res.json(results.rows);
+        res.json({
+            status: 'success',
+            recordList: results.rows
+        });
     });
 });
 
@@ -52,7 +55,10 @@ router.get('/:userid', (req, res) => {
             });
         }
         client.end();
-        res.json(results.rows);
+        res.json({
+            status: 'success',
+            recordList: results.rows
+        });
     });
 });
 
